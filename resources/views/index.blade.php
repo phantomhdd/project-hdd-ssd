@@ -15,14 +15,12 @@
     <!-- javascript -->
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
-
 
 </head>
 <body>
 
     <!-- Navigasi -->
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-text nav-bg">
         <div class="container">
             <a class="navbar-brand" href="/">Gallery</a>
 
@@ -31,24 +29,33 @@
             </button>
 
             <!-- navbar kiri -->
-            <div class="collapse navbar-collapse justify-content-md-start" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
+            <div class="collapse navbar-collapse justify-content-sm-start" id="navbarSupportedContent">
+                <ul class="navbar-nav">
                 </ul>
             </div>
 
             <!-- navbar kanan -->
-            <div class="collapse navbar-collapse justify-content-md-end" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse justify-content-sm-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div class="slider round"></div>
+                            </label>
+                            <em>Enable Dark Mode!</em>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link nav-plus" data-toggle="modal" href="#upload"><strong>&plus;</strong></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Username</a>
                         <div class="dropdown-menu dropdown-menu-md-right">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <a class="dropdown-item" href="#">Log out</a>
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <a class="dropdown-item" href="#">Log out</a>
                         </div>
                     </li>
                 </ul>
@@ -63,7 +70,7 @@
         <div class="container">
             <div class="row">
                 @foreach($photos as $photo)
-                <div class="col-md-4">
+                <div class="col-lg-4 konten-item">
                     <div class="card">
                         <a href="#">
                             <img src="{{$photo->file_path}}" alt="1" class="card-img-top">
@@ -99,9 +106,9 @@
     <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <div class="modal-header bg-info text-light">
+                <div class="modal-header navbar-text nav-bg">
                     <h5 class="modal-title" id="exampleModalLabel">Upload Picture</h5>
-                    <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -127,5 +134,8 @@
     </div>
     <!-- akhir modal -->
 
+
+
+    <script src="js/script.js"></script>
 </body>
 </html>
