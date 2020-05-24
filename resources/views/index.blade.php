@@ -69,132 +69,37 @@
     <section class="konten" id="konten">
         <div class="container">
             <div class="row">
+                @foreach($photos as $photo)
                 <div class="col-lg-4 konten-item">
                     <div class="card">
                         <a href="#">
+<<<<<<< HEAD
                             <img src="img/thumbs/1.png" alt="1" class="card-img-top">
+=======
+                            <img src="{{$photo->file_path}}" alt="1" class="card-img-top">
+>>>>>>> 92b42d2f4e8ecf1d3cfc7101f96fe32c1a5c2cd1
                         </a>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h6 class="card-title">username</h6>
+                                    <h6 class="card-title">{{$photo->uploader}}</h6>
                                 </div>
                                 <div class="col-md-6">
-                                    <h6 class="figure-caption text-right"><em>16-02-1998</em></h6>
+                                    @if(date("Y-m-d") == substr($photo->upload_time,0,10))
+                                        <h6 class="figure-caption text-right"><em>{{substr($photo->upload_time,10,-3)}}</em></h6>
+                                    @else
+                                        <h6 class="figure-caption text-right"><em>{{substr($photo->upload_time,0,10)}}</em></h6>
+                                    @endif
                                 </div>
                             </div>
 
                             <p class="card-text caption">
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                                {{$photo->caption}}
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 konten-item">
-                    <div class="card">
-                        <a href="#">
-                            <img src="img/thumbs/2.png" alt="2" class="card-img-top">
-                        </a>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="card-title">username</h6>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="figure-caption text-right"><em>16-02-1998</em></h6>
-                                </div>
-                            </div>
-
-                            <p class="card-text caption">
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 konten-item">
-                    <div class="card">
-                        <a href="#">
-                            <img src="img/thumbs/3.png" alt="3" class="card-img-top">
-                        </a>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="card-title">username</h6>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="figure-caption text-right"><em>16-02-1998</em></h6>
-                                </div>
-                            </div>
-
-                            <p class="card-text caption">
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 konten-item">
-                    <div class="card">
-                        <a href="#">
-                            <img src="img/thumbs/4.png" alt="4" class="card-img-top">
-                        </a>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="card-title">username</h6>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="figure-caption text-right"><em>16-02-1998</em></h6>
-                                </div>
-                            </div>
-
-                            <p class="card-text caption">
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 konten-item">
-                    <div class="card">
-                        <a href="#">
-                            <img src="img/thumbs/5.png" alt="5" class="card-img-top">
-                        </a>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="card-title">username</h6>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="figure-caption text-right"><em>16-02-1998</em></h6>
-                                </div>
-                            </div>
-
-                            <p class="card-text caption">
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 konten-item">
-                    <div class="card">
-                        <a href="#">
-                            <img src="img/profile-picture.png" alt="6" class="card-img-top" width="250px" height="250px">
-                        </a>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h6 class="card-title">username</h6>
-                                </div>
-                                <div class="col-md-6">
-                                    <h6 class="figure-caption text-right"><em>16-02-1998</em></h6>
-                                </div>
-                            </div>
-
-                            <p class="card-text caption">
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -211,20 +116,21 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="/process" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="upload-picture">Upload Picture</label>
-                            <input type="file" class="form-control-file" name="files[]" id="upload-picture">
+                            <input type="file" class="form-control-file" name="files" id="upload-picture">
                         </div>
                         <div class="form-group">
                             <label for="upload-caption">Insert Caption</label>
-                            <textarea class="form-control" id="upload-caption" rows="3"></textarea>
+                            <textarea class="form-control" id="upload-caption" rows="3" name="caption"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         <button type="submit" class="box__button btn btn-primary">Upload Picture</button>
+                        {{ csrf_field() }}
                     </div>
                 </form>
             </div>
