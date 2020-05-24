@@ -41,7 +41,7 @@ a .card-img-top {
     box-sizing: border-box;
     background-color: var(--nav-color);
 }
-
+/* akhir konten */
 
 /* navigasi */
 .nav-plus:hover , .close{
@@ -81,6 +81,7 @@ nav.navbar-text a {
 .navbar-toggler-icon {
     background-image: var(--background-image);
 }
+/* Akhir Navbar */
 
 
 /*Simple css to style it like a toggle switch*/
@@ -90,11 +91,23 @@ nav.navbar-text a {
 .theme-switch-wrapper {
     display: inline-block;
     align-items: center;
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+    z-index: 9999;
 }
 .theme-switch-wrapper em {
     position: relative;
     top: -3px;
     font-size: .9em;
+}
+.theme-switch-wrapper .dark-img {
+    width: 100px;
+    height: 200px;
+    background-image: url('/img/nightmode.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
 }
 .theme-switch {
     display: inline-block;
@@ -140,3 +153,32 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+/* akhir css toggle dark mode */
+
+/* img menu option */
+.img-wrapper {
+    position: relative;
+}
+.img-wrapper .nav-link {
+    background-color: var(--secondary-color);
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 99;
+    -webkit-filter: opacity(0);
+    filter: opacity(.5);
+    transition: ease-in-out;
+}
+.img-wrapper .nav-link:hover {
+    -webkit-filter: opacity(1);
+    filter: opacity(1);
+}
+.bulat {
+    display: block;
+    background-color: rgba(255, 255, 255, .8);
+    width: 5px;
+    height: 5px;
+    margin: 1px;
+    border-radius: 50%;
+}
+/* akhir img menu option */

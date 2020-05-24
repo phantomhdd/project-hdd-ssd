@@ -19,6 +19,16 @@
 </head>
 <body>
 
+    {{-- darkmode switch --}}
+    <div class="theme-switch-wrapper">
+        <div class="dark-img"></div>
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+        <em>Silau Broo!</em>
+    </div>
+
     <!-- Navigasi -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-text nav-bg">
         <div class="container">
@@ -38,13 +48,7 @@
             <div class="collapse navbar-collapse justify-content-sm-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox" />
-                                <div class="slider round"></div>
-                            </label>
-                            <em>Enable Dark Mode!</em>
-                        </div>
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-plus" data-toggle="modal" href="#upload"><strong>&plus;</strong></a>
@@ -72,13 +76,19 @@
                 @foreach($photos as $photo)
                 <div class="col-lg-4 konten-item">
                     <div class="card">
-                        <a href="#">
-<<<<<<< HEAD
-                            <img src="img/thumbs/1.png" alt="1" class="card-img-top">
-=======
-                            <img src="{{$photo->file_path}}" alt="1" class="card-img-top">
->>>>>>> 92b42d2f4e8ecf1d3cfc7101f96fe32c1a5c2cd1
-                        </a>
+                        <div class="img-wrapper">
+                            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="bulat"></span>
+                                <span class="bulat"></span>
+                                <span class="bulat"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-md-right">
+                                <a class="dropdown-item" href="#">Delete</a>
+                            </div>
+                            <a href="#">
+                                <img src="{{$photo->file_path}}" alt="1" class="card-img-top">
+                            </a>
+                        </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
