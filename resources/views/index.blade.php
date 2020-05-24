@@ -72,7 +72,7 @@
                 <div class="col-lg-4 konten-item">
                     <div class="card">
                         <a href="#">
-                            <img src="img/thumbs/1.png" alt="1" class="card-img-top" width="250px" height="250px">
+                            <img src="img/thumbs/1.png" alt="1" class="card-img-top">
                         </a>
                         <div class="card-body">
                             <div class="row">
@@ -204,8 +204,8 @@
     <!-- Modal -->
     <div class="modal fade" id="upload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header navbar-text nav-bg">
+            <div class="modal-content card">
+                <div class="modal-header nav-bg">
                     <h5 class="modal-title" id="exampleModalLabel">Upload Picture</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
