@@ -29,17 +29,25 @@ body {
 }
 
 #konten .konten-item {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 a .card-img-top {
     width: 100%;
-    height: auto;
+    height: 11em;
 }
 
 .card {
     box-sizing: border-box;
     background-color: var(--nav-color);
+}
+
+/* Image card */
+.center-cropped {
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 100px;
+    width: 100px;
 }
 
 

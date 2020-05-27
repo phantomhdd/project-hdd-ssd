@@ -68,23 +68,23 @@
     <!-- Konten -->
     <section class="konten" id="konten">
         <div class="container">
-            <div class="row">
+            <div class="row ">
                 @foreach($photos as $photo)
                 <div class="col-lg-4 konten-item">
                     <div class="card">
                         <a href="#">
-                            <img src="{{$photo->file_path}}" alt="1" class="card-img-top">
+                            <img src="{{$photo->file_path}}" alt="1" class="center-cropped card-img-top">
                         </a>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h6 class="card-title">{{$photo->uploader}}</h6>
+                                    <p class="card-title h6"><strong>{{$photo->uploader}}</strong></p>
                                 </div>
                                 <div class="col-md-6">
                                     @if(date("Y-m-d") == substr($photo->upload_time,0,10))
-                                        <h6 class="figure-caption text-right"><em>{{substr($photo->upload_time,10,-3)}}</em></h6>
+                                        <p class="figure-caption text-right h6"><em>{{substr($photo->upload_time,10,-3)}}</em></p>
                                     @else
-                                        <h6 class="figure-caption text-right"><em>{{substr($photo->upload_time,0,10)}}</em></h6>
+                                        <p class="figure-caption text-right h6"><em>{{substr($photo->upload_time,0,10)}}</em></p>
                                     @endif
                                 </div>
                             </div>
