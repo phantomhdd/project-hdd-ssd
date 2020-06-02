@@ -1,3 +1,4 @@
+// dark mode toggler
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 
 function switchTheme(e) {
@@ -22,3 +23,4 @@ if (currentTheme) {
 }
 
 toggleSwitch.addEventListener('change', switchTheme, false);
+// akhir dark mode toggler

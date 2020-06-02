@@ -1,121 +1,106 @@
 :root {
-    --primary-color: #393e46;
-    --secondary-color: #929aab;
-    --font-color: #393e46;
-    --bg-color: #eeeeee;
-    --nav-color: #f7f7f7;
-    --background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --body-background-color:#fff;
+    --navbar-background-color:#f8f9fa!important;
+    --background-hover-color: #dae0e5!important;
+    --brand-color: rgba(0,0,0,.9);
+    --brand-hover-color:   rgba(0,0,0,.9);
+    --navbar-link-color: rgba(0,0,0,.5);
+    --navbar-link-hover-color: rgba(0,0,0,.7);
+    --navbar-link-toggler-color: rgba(0,0,0,.5);
+    --navbar-link-toggler-border-color: rgba(0,0,0,.1);
+    --navbar-link-toggler-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 [data-theme="dark"] {
-    --primary-color: #eeeeee;
-    --secondary-color: #f6c90e;
-    --font-color: #fff;
-    --bg-color: #3a4750;
-    --nav-color: #303841;
-    --background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --body-background-color:#252525;
+    --navbar-background-color:#343a40!important;
+    --background-hover-color: #1d2124!important;
+    --brand-color: #fff;
+    --brand-hover-color:   #fff;
+    --navbar-link-color: rgba(255,255,255,.5);
+    --navbar-link-hover-color: rgba(255,255,255,.75);
+    --navbar-link-toggler-color: rgba(255,255,255,.5);
+    --navbar-link-toggler-border-color: rgba(255,255,255,.1);
+    --navbar-link-toggler-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-body {
-    background-color: var(--bg-color);
-    color: var(--font-color);
-    padding-top: 56px;
+/* override .bg-light css */
+.bg-light{
+    background-color:var(--navbar-background-color)!important
 }
-
-
-/* konten */
-#konten {
-    padding: 50px;
+a.bg-light:focus,
+a.bg-light:hover,
+button.bg-light:focus,
+button.bg-light:hover{
+    background-color:var(--background-hover-color)!important
 }
+/* akhir override .bg-light css */
 
-#konten .konten-item {
-    margin-bottom: 50px;
+/* override .navbar-light css */
+.navbar-light .navbar-brand{
+    color:var(--brand-color)
 }
-
-a .card-img-top {
-    width: 100%;
-    height: auto;
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:hover{
+    color:var(--brand-hover-color)
 }
+.navbar-light .navbar-nav .nav-link{
+    color:var(--navbar-link-color)
+}
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover{
+    color:var(--navbar-link-hover-color)
+}
+.navbar-light .navbar-toggler{
+    color:var( --navbar-link-toggler-color);
+    border-color:var(--navbar-link-toggler-border-color)
+}
+.navbar-light .navbar-toggler-icon{
+    background-image:var( --navbar-link-toggler-image)
+}
+/* akhir override .navbar-light css */
 
+/* override .card css */
 .card {
-    box-sizing: border-box;
-    background-color: var(--nav-color);
+    background-color: var(--navbar-background-color);
 }
-/* akhir konten */
+/* akhir override .card css */
 
-/* navigasi */
-.nav-plus:hover , .close{
-    color: var(--secondary-color);
-    background-color: var(--font-color);
-    border: 1px solid var(--font-color);
+/* body */
+body {
+    background-color: var(--body-background-color);
+    color: var(--brand-color);
+    margin-top: 56px;
+    padding: 20px;
 }
+/* akhir menggeser body agar tidak tertutup navbar */
 
-.nav-plus {
-    box-sizing: border-box;
-    border: 1px solid var(--font-color);
-    border-radius: 20px;
-    text-align: center;
-    margin: 7px 15px 0px;
-    padding-top: 0;
-    padding-bottom: 3px;
-}
-
-nav.navbar-text a {
-    color: var(--font-color);
-}
-
-.nav-bg {
-    background-color: var(--nav-color);
-    -webkit-filter: opacity(.95);
-    filter: opacity(.95);
-}
-
-.dropdown-menu {
-    background-color: var(--nav-color);
-}
-
-.navbar-toggler {
-    border-color: var(--font-color);
-}
-
-.navbar-toggler-icon {
-    background-image: var(--background-image);
-}
-/* Akhir Navbar */
-
-
-/*Simple css to style it like a toggle switch*/
-.theme-switch input {
-    display:none;
-}
+/* dark mode toggler css */
 .theme-switch-wrapper {
-    display: inline-block;
-    align-items: center;
+    display: block;
     position: fixed;
-    right: 30px;
-    bottom: 50px;
-    z-index: 9999;
+    bottom: 0px;
+    right: 15px;
 }
+
 .theme-switch-wrapper em {
-    position: relative;
-    top: -3px;
-    font-size: .9em;
+    margin-left: 10px;
+    font-size: 1rem;
+    cursor: pointer;
 }
-.theme-switch-wrapper .dark-img {
-    width: 100px;
-    height: 200px;
-    background-image: url('/img/nightmode.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom;
-}
+
 .theme-switch {
     display: inline-block;
     height: 20px;
     position: relative;
-    width: 30px;
-    top: 10px;
+    width: 40px;
+    left: 30px;
 }
+  
+.theme-switch input {
+    display:none;
+}
+  
 .slider {
     background-color: #ccc;
     bottom: 0;
@@ -126,11 +111,11 @@ nav.navbar-text a {
     top: 0;
     transition: .4s;
 }
-
+  
 .slider:before {
     background-color: #fff;
-    bottom: 2.517px;
-    content: " ";
+    bottom: 2.57px;
+    content: "";
     height: 15px;
     left: 4px;
     position: absolute;
@@ -139,46 +124,78 @@ nav.navbar-text a {
 }
 
 input:checked + .slider {
-    background-color: #555;
+    background-color: #5c5c5c;
 }
-
+  
 input:checked + .slider:before {
-    transform: translateX(7px);
+    transform: translateX(17px);
 }
 
 .slider.round {
-    border-radius: 12px;
+    border-radius: 15px;
 }
 
 .slider.round:before {
     border-radius: 50%;
 }
-/* akhir css toggle dark mode */
 
-/* img menu option */
-.img-wrapper {
-    position: relative;
-}
-.img-wrapper .nav-link {
-    background-color: var(--secondary-color);
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    z-index: 99;
-    -webkit-filter: opacity(0);
-    filter: opacity(.5);
-    transition: ease-in-out;
-}
-.img-wrapper .nav-link:hover {
-    -webkit-filter: opacity(1);
-    filter: opacity(1);
-}
-.bulat {
+.dark-img {
     display: block;
-    background-color: rgba(255, 255, 255, .8);
-    width: 5px;
-    height: 5px;
-    margin: 1px;
-    border-radius: 50%;
+    width: 100px;
+    height: 200px;
+    background-image: url('../img/nightmode.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
 }
-/* akhir img menu option */
+/* akhir dark mode toggler css */
+
+/* .menu css */
+.menu {
+    border-radius: 3px;
+    background-color: rgba(201,201,201,.2);
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    top: 8px;
+    right: 8px;
+}
+
+.menu:after {
+    content: "\2807";
+    color: rgba(255,255,255,.5);
+    font-size: 1.3rem;
+    line-height: 30px;
+    position: absolute;
+    left: 5px;
+}
+
+.menu:hover {
+    background-color: rgba(201,201,201,.5);
+}
+/* akhir .menu css */
+
+/* css for handling image in .card */
+.img-wrapper {
+    display: block;
+    width: 100%;
+    height: 260px;
+}
+.img {
+    display: grid;
+    height: 250px;
+    width: 100%;
+    overflow: hidden;
+    justify-items: center;
+    vertical-align: center;
+}
+/* akhir css for handling image in .card */
+
+/* css for carousel image size */
+
+/* akhircss for carousel image size */
