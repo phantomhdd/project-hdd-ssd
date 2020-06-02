@@ -70,7 +70,7 @@
         <div class="container">
             <!-- kumpulan gambar -->
             <div class="row">
-                @foreach($photos as $photo)
+                @foreach($photos as $key => $photo)
                 <figure class="col-12 col-sm-6 col-lg-4 pb-md-4">
                     <div class="card shadow-sm">
                         <a class="navbar-toggler-icon menu" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,19 +81,19 @@
                         </div>
                         <a class="img-wrapper img-thumbnail" data-toggle="modal" href="#carousel_modal">
                             <div class="img">
-                                <img src="{{$photo->file_path}}" alt="1" data-target="#image_slider" data-slide-to="0">
+                                <img src="{{ $photo->file_path }}" alt="1" data-target="#image_slider" data-slide-to="{{ $key }}">
                             </div>
                         </a>
                         <div class="card-body">
                             <span class="row">
                                 <span class="col">
-                                    <h5 class="card-title">{{$photo->uploader}}</h5>
+                                    <h5 class="card-title">{{ $photo->uploader }}</h5>
                                 </span>
                                 <span class="col">
                                     @if(date("Y-m-d") == substr($photo->upload_time,0,10))
-                                        <figcaption class="figure-caption text-right">{{substr($photo->upload_time,10,-3)}}</figcaption>
+                                        <figcaption class="figure-caption text-right">{{ substr($photo->upload_time,10,-3) }}</figcaption>
                                     @else
-                                        <figcaption class="figure-caption text-right">{{substr($photo->upload_time,0,10)}}</figcaption>
+                                        <figcaption class="figure-caption text-right">{{ substr($photo->upload_time,0,10) }}</figcaption>
                                     @endif
                                 </span>
                             </span>
@@ -185,69 +185,19 @@
                     <!-- image carousel -->
                     <div id="image_slider" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="img/thumbs/1.png" class="d-block w-100" alt="1">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Uploader</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/thumbs/2.png" class="d-block w-100" alt="2">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Uploader</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/photos-profile/profile-picture.png" class="d-block w-100" alt="faza">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Uploader</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/nightmode.png" class="d-block w-100" alt="nightmode">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Uploader</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/thumbs/3.png" class="d-block w-100" alt="3">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Uploader</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/thumbs/4.png" class="d-block w-100" alt="4">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Uploader</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/thumbs/5.png" class="d-block w-100" alt="5">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Uploader</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/thumbs/6.png" class="d-block w-100" alt="6">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Uploader</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="img/photos/1590265628.png" class="d-block w-100" alt="gaje">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Uploader</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
+                            @foreach ($photos as $key => $photo)
+                                @if ($key == 0)
+                                    <div class="carousel-item active">
+                                @else
+                                    <div class="carousel-item">
+                                @endif
+                                        <img src="{{ $photo->file_path }}" class="d-block w-100" alt="1">
+                                        {{-- <div class="carousel-caption d-none d-md-block">
+                                            <h5>{{ $photo->uploader }}</h5>
+                                            <p>{{ $photo->caption }}</p>
+                                        </div> --}}
+                                    </div>
+                            @endforeach
                         </div>
                         <a class="carousel-control-prev" href="#image_slider" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
