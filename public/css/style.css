@@ -5,6 +5,7 @@
     --bg-color: #eeeeee;
     --nav-color: #f7f7f7;
     --background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --logo-image: url(../img/logo-light.png);
 }
 
 [data-theme="dark"] {
@@ -14,6 +15,7 @@
     --bg-color: #3a4750;
     --nav-color: #303841;
     --background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    --logo-image: url(../img/logo-dark.png);
 }
 
 body {
@@ -22,6 +24,15 @@ body {
     padding-top: 56px;
 }
 
+/* logo */
+.navbar-brand .dark-logo {
+    width: 132px;
+    height: 49px;
+    background-image: var(--logo-image);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+}
 
 /* konten */
 #konten {

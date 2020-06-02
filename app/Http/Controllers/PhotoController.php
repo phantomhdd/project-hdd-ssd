@@ -97,7 +97,7 @@ class PhotoController extends Controller
      * @param  \App\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function delete(Photo $photo){
+    public function delete(Request $request){
         //
     }
 }
