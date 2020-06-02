@@ -15,6 +15,9 @@
 //     return view('index');
 // });
 
+
 Route::get('/', 'PhotoController@show');
 Route::post('process', 'PhotoController@store');
 Route::post('delete', 'PhotoController@delete');
+Route::post('login', 'Auth\LoginController@login');
+Route::get('login', 'Auth\LoginController@ShowLoginForm')->name('login');
