@@ -90,11 +90,46 @@
                                     <h5 class="card-title">{{ $photo->uploader }}</h5>
                                 </span>
                                 <span class="col">
-                                    @if(date("Y-m-d") == substr($photo->upload_time,0,10))
-                                        <figcaption class="figure-caption text-right">{{ substr($photo->upload_time,10,-3) }}</figcaption>
-                                    @else
-                                        <figcaption class="figure-caption text-right">{{ substr($photo->upload_time,0,10) }}</figcaption>
-                                    @endif
+                                        <figcaption class="figure-caption text-right">
+                                            @php 
+                                                $now = new DateTime(date("Y-m-d H:i:s"));
+                                                $date = new DateTime($photo->upload_time);
+                                                $duration = $date->diff($now);
+                                                if ($duration->format('%Y') < 1) {
+                                                    if ($duration->format('%d') < 7) {
+                                                        if ($duration->format('%d') == 0) {
+                                                            if($duration->format('%H') == 0){
+                                                                if ($duration->format('%I') == 0) {
+                                                                    echo 'few seconds ago';
+                                                                } else {
+                                                                    if ($duration->format('%I') < 2) {
+                                                                        echo $duration->format('%i minute ago');
+                                                                    } else {
+                                                                        echo $duration->format('%i minutes ago');
+                                                                    }
+                                                                }
+                                                            }else{
+                                                                if ($duration->format('%H') < 2) {
+                                                                    echo $duration->format('%h hour ago');
+                                                                } else {
+                                                                    echo $duration->format('%h hours ago');
+                                                                }
+                                                            }
+                                                        } else {
+                                                            if ($duration->format('%d') < 2) {
+                                                                echo $duration->format('%d day ago');
+                                                            } else {
+                                                                echo $duration->format('%d days ago');
+                                                            }
+                                                        }
+                                                    } else {
+                                                        echo $date->format('d M');
+                                                    }
+                                                } else {
+                                                    echo $date->format('d M Y');
+                                                }
+                                            @endphp
+                                        </figcaption>
                                 </span>
                             </span>
                             <p class="card-text">{{ $photo->caption }}</p>

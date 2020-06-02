@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+date_default_timezone_set('Asia/Jakarta');
 define("ROOT_PATH", $_SERVER['DOCUMENT_ROOT']);
 
 use App\Photo as Photo;
