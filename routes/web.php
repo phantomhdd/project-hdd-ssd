@@ -17,3 +17,4 @@
 
 Route::get('/', 'PhotoController@show');
 Route::post('process', 'PhotoController@store');
+Route::post('delete', 'PhotoController@delete');
