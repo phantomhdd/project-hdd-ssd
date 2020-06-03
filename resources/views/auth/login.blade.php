@@ -23,14 +23,25 @@
             <div class="col-7 offset-4 col-sm-5 offset-sm-6 col-lg-3 offset-lg-8 login-base shadow-lg">
                 <h3 class="text-center">Masuk</h3>
                 <hr>
-                <form>
+                <form action="{{ route("login") }}" method="POST">
+                    @csrf
                     <div class="form-group">
-                        <label for="surel">Alamat Surel</label>
-                        <input type="email" class="form-control" id="surel" aria-describedby="emailHelp" placeholder="Masukkan alamat surel">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Masukkan username" name="username" value="{{ old('username') }}">
+                        @error('username') 
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="sandi">Kata Sandi</label>
-                        <input type="password" class="form-control" id="sandi" placeholder="Masukkan kata sandi">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Masukkan kata sandi">
+                        @error('password') 
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="ingat_saya">

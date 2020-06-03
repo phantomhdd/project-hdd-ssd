@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +17,10 @@
 //     return view('index');
 // });
 
-
+Route::redirect('/home', '/', 301);
 Route::get('/', 'PhotoController@show');
 Route::post('process', 'PhotoController@store');
 Route::post('delete', 'PhotoController@delete');
-Route::post('login', 'Auth\LoginController@login');
-Route::get('login', 'Auth\LoginController@ShowLoginForm')->name('login');
+
+Auth::routes();
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');

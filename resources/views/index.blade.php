@@ -49,14 +49,14 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Muhammad Faza
+                            {{ Auth::user()->fullname }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Account</a>
                             <a class="dropdown-item" href="#">Setting</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">FAQ</a>
-                            <a class="dropdown-item" href="#">Log out</a>
+                            <a class="dropdown-item" href="/logout">Log out</a>
                         </div>
                     </li>
                 </ul>

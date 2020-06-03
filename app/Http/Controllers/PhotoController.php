@@ -7,9 +7,16 @@ define("ROOT_PATH", $_SERVER['DOCUMENT_ROOT']);
 
 use App\Photo as Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PhotoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +53,7 @@ class PhotoController extends Controller
 
             $data = [
                 'id' => $filename,
-                'uploader' => '@mhadid_22',
+                'uploader' => Auth::user()->username,
                 'caption' => $request->caption,
                 'file_path' => '/img/photos/' . $filename . '.' . $extension,
                 'upload_time' => date("Y-m-d H:i:s"),
