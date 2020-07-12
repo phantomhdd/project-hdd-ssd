@@ -1,4 +1,4 @@
-/* login base-card */ 
+/* login base-card */
 .login-base {
     background-color: #f7f7f7;
     padding: 30px;
@@ -31,11 +31,11 @@ body {
      content: " "; /* 1 */
      display: table; /* 2 */
  }
- 
+
  .cf:after {
      clear: both;
  }
- 
+
  /**
   * For IE 6/7 only
   * Include this rule to trigger hasLayout and contain floats.
@@ -44,3 +44,45 @@ body {
      *zoom: 1;
  }
 /* akhir micro clearfix */
+
+/* google login style */
+.inputBox {
+    position: relative;
+}
+
+.inputBox label {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    padding: 0.430rem 0;
+    font-size: 1rem;
+    color: grey;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.inputBox input {
+    width: 93%;
+    padding: 0.625rem 10px;
+    font-size: 1rem;
+    letter-spacing: 0.0625rem;
+    margin-bottom: 1.875rem;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 4px;
+}
+
+.inputBox input:focus {
+    background-color: #f7f7f7;
+}
+
+.inputBox input:focus ~ label,
+.inputBox input:not([value=""]) ~ label {
+    top: -0.725rem;
+    left: 10px;
+    font-size: 0.75rem;
+    background-color: #f7f7f7;
+    padding: 0 5px;
+}
+
+/* akhir google login style */
