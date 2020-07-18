@@ -29,23 +29,24 @@
                         <div class="inputBox">
                             <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" value="{{ old('username') }}" onkeyup="this.setAttribute('value', this.value);">
                             <label for="username">Username</label>
+                            @error('username')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-                        @error('username')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
                     </div>
+                    <br>
                     <div class="form-group">
                         <div class="inputBox">
                             <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" onkeyup="this.setAttribute('value', this.value);" value="">
                             <label for="sandi">Kata Sandi</label>
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-                        @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
                     </div>
                     <hr>
                     <div class="row">
@@ -59,7 +60,12 @@
                             <button type="submit" class="btn btn-primary float-right cf">Masuk</button>
                         </div>
                     </div>
-                    <small class="figure-caption"><em>Lupa kata sandi? </em><a href="#">klik disini</a></small>
+                    <br>
+                    <div class="row">
+                        <div class="col col-sm-12">
+                            <small class="figure-caption"><em>Lupa kata sandi? </em><a href="#">klik disini</a></small>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
